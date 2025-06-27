@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Islami</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="spinner"></div>
+        <p>Membuka Undangan...</p>
+    </div>
+
+    <audio id="background-music" loop autoplay>
+        <source src="music1.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>Walimatul Ursy</h1>
+            <h2>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara resepsi pernikahan putra-putri kami:</h2>
+            <div class="names">
+                <span class="bride-name">Aisyah Nurjannah</span>
+                <span class="and">&</span>
+                <span class="groom-name">Muhammad Rizky Adnan</span>
+            </div>
+            <p class="date-hero">Sabtu, 14 Rabiul Awal 1446 H | 28 September 2024</p>
+            <button id="open-invitation-btn">Buka Undangan <i class="fas fa-envelope-open-text"></i></button>
+        </div>
+    </header>
+
+    <nav id="navbar">
+        <ul>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#event-details">Detail Acara</a></li>
+            <li><a href="#gallery">Galeri</a></li>
+            <li><a href="#map">Lokasi</a></li>
+            <li><a href="#guestbook">Buku Tamu</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content" style="display: none;">
+        <section id="about" class="section-padded">
+            <div class="container">
+                <h2>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</h2>
+                <p class="intro-quote">
+                    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir."
+                    <br> (QS. Ar-Rum: 21)
+                </p>
+                <div class="couple-info">
+                    <div class="person-card fade-in left-delay">
+                        <img src="foto2.jpeg" alt="aisyah Nurjannah" class="profile-pic">
+                        <h3>Dafina Karamoy.</h3>
+                        <p>Putri Pertama dari Bapak H. Abdullah dan Ibu Hj. Fatimah</p>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i> @aisyah_nurjannah</a>
+                    </div>
+                    <div class="heart-icon fade-in">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="person-card fade-in right-delay">
+                        <img src="foto.jpg" alt="Muhammad Rizky Adnan" class="profile-pic">
+                        <h3>Fuad Khoirul Umam, S.Pd.</h3>
+                        <p>Putra Kedua dari Bapak Ir. Budi Santoso dan Ibu Dra. Siti Aminah</p>
+                        <a href="https://instagram.com/lutfillahfadliansah_" class="social-link"><i class="fab fa-instagram"></i> @lutfillahfadliansah_</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="event-details" class="section-padded parallax">
+            <div class="container">
+                <h2>Detail Acara</h2>
+                <div class="event-cards">
+                    <div class="event-card fade-in bottom-delay">
+                        <h3><i class="fas fa-ring"></i> Akad Nikah</h3>
+                        <p><strong>Sabtu, 28 September 2024</strong></p>
+                        <p>Pukul: 08.00 WIB - Selesai</p>
+                        <p>Lokasi: Masjid Agung Al-Azhar</p>
+                        <p>Jl. Sisingamangaraja, Kebayoran Baru, Jakarta Selatan</p>
+                    </div>
+                    <div class="event-card fade-in bottom-delay">
+                        <h3><i class="fas fa-glass-cheers"></i> Resepsi Pernikahan</h3>
+                        <p><strong>Sabtu, 28 September 2024</strong></p>
+                        <p>Pukul: 11.00 WIB - 15.00 WIB</p>
+                        <p>Lokasi: Gedung Serbaguna Balai Kartini</p>
+                        <p>Jl. Gatot Subroto Kav. 37, Jakarta Selatan</p>
+                    </div>
+                </div>
+                <div id="countdown" class="fade-in">
+                    <h3>Hitung Mundur Menuju Hari Bahagia</h3>
+                    <div class="countdown-timer">
+                        <div class="time-unit"><span id="days">00</span><br>Hari</div>
+                        <div class="time-unit"><span id="hours">00</span><br>Jam</div>
+                        <div class="time-unit"><span id="minutes">00</span><br>Menit</div>
+                        <div class="time-unit"><span id="seconds">00</span><br>Detik</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section-padded">
+            <div class="container">
+                <h2>Galeri Momen</h2>
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <img src="assets/gallery1.jpg" style="width:100%">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="assets/gallery2.jpg" style="width:100%">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="assets/gallery3.jpg" style="width:100%">
+                    </div>
+                    <div class="mySlides fade">
+                        <img src="assets/gallery4.jpg" style="width:100%">
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <div style="text-align:center">
+                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="map" class="section-padded">
+            <div class="container">
+                <h2>Lokasi Acara</h2>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.1952331560967!2d106.8153323147699!3d-6.239634795484803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3796d194537%3A0x6b8d29c3d49f1388!2sBalai%20Kartini!5e0!3m2!1sen!2sid!4v1678888888888!5m2!1sen!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <p class="map-caption">Lokasi Resepsi: Gedung Serbaguna Balai Kartini</p>
+                    <a href="https://maps.app.goo.gl/YourGoogleMapsLinkHere" target="_blank" class="btn-direction"><i class="fas fa-map-marker-alt"></i> Lihat di Google Maps</a>
+                    </div>
+            </div>
+        </section>
+
+        <section id="guestbook" class="section-padded">
+            <div class="container">
+                <h2>Buku Tamu & Ucapan</h2>
+                <p>Silakan berikan doa dan restu Anda kepada kami.</p>
+                <form id="rsvp-form">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="attendance">Kehadiran:</label>
+                        <select id="attendance" name="attendance" required>
+                            <option value="">Pilih</option>
+                            <option value="hadir">Insya Allah Hadir</option>
+                            <option value="tidak hadir">Berhalangan Hadir</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Ucapan & Doa:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Kirim Ucapan</button>
+                </form>
+
+                <div id="guestbook-entries">
+                    <h3>Ucapan dari Para Tamu</h3>
+                    <div class="entry">
+                        <p class="entry-name"><strong>Bapak & Ibu Hadi</strong></p>
+                        <p class="entry-message">Selamat menempuh hidup baru, semoga menjadi keluarga yang sakinah, mawaddah, warahmah. Aamiin.</p>
+                    </div>
+                    <div class="entry">
+                        <p class="entry-name"><strong>Fatimah Azzahra</strong></p>
+                        <p class="entry-message">Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khoir. Selamat ya Aisyah & Rizky!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gifts" class="section-padded">
+            <div class="container">
+                <h2>Hadiah & Amplop Digital</h2>
+                <p>Tanpa mengurangi rasa hormat, bagi Bapak/Ibu/Saudara/i yang ingin memberikan tanda kasih, dapat melalui:</p>
+                <div class="bank-details">
+                    <p><strong>Bank Syariah Indonesia (BSI)</strong></p>
+                    <p>No. Rekening: <strong>7123456789</strong></p>
+                    <p>Atas Nama: <strong>Aisyah Nurjannah</strong></p>
+                    <button class="btn-copy" data-clipboard-text="7123456789">Salin Nomor Rekening</button>
+                    <p class="qr-code-note">Atau melalui scan QR Code:</p>
+                    <img src="assets/qr_code.png" alt="QR Code Bank" class="qr-code">
+                </div>
+                <p class="closing-note">Doa restu dari Anda adalah hadiah paling berharga bagi kami.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="section-padded">
+        <div class="container">
+            <p>&copy; 2025 Undangan Pernikahan Aisyah & Rizky. Dibuat dengan ❤️</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,908 @@
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Playfair+Display:wght@400;700&family=Pacifico&display=swap');
+
+:root {
+    --primary-color: #5C8374; /* Hijau Keabuan */
+    --secondary-color: #9EC8B9; /* Hijau Muda */
+    --accent-color: #1A5319; /* Hijau Tua */
+    --text-color: #333;
+    --light-text-color: #666;
+    --background-light: #F8F6F4; /* Krem Muda */
+    --background-dark: #D2E0DF; /* Biru Keabuan */
+    --border-color: #ddd;
+    --font-arabic: 'Scheherazade New', serif;
+    --font-elegant: 'Playfair Display', serif;
+    --font-script: 'Pacifico', cursive;
+}
+
+body {
+    font-family: var(--font-elegant), sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-light);
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+
+.spinner {
+    border: 8px solid var(--secondary-color);
+    border-top: 8px solid var(--primary-color);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Base Styles */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-padded {
+    padding: 80px 0;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-elegant), serif;
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+.btn-direction, .btn-submit, .btn-copy {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-direction:hover, .btn-submit:hover, .btn-copy:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: url('assets/hero_bg.jpg') no-repeat center center/cover;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay gelap */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    animation: fadeInScale 1.5s ease-out forwards;
+}
+
+.hero-content h1 {
+    font-family: var(--font-arabic);
+    font-size: 4.5em;
+    color: white;
+    margin-bottom: 10px;
+    animation: slideInDown 1s ease-out;
+}
+
+.hero-content h2 {
+    font-size: 1.5em;
+    color: #eee;
+    font-weight: 400;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.hero-content .names {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.hero-content .bride-name, .hero-content .groom-name {
+    font-family: var(--font-script);
+    font-size: 3em;
+    color: white;
+    position: relative;
+    padding: 0 20px;
+    animation: zoomIn 1.5s ease-out;
+}
+
+.hero-content .and {
+    font-family: var(--font-elegant);
+    font-size: 2em;
+    color: white;
+    margin: 0 10px;
+    animation: rotateIn 1.5s ease-out;
+}
+
+.hero-content .date-hero {
+    font-size: 1.2em;
+    color: #eee;
+    margin-top: 20px;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+#open-invitation-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    animation: pulse 2s infinite;
+}
+
+#open-invitation-btn:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* Navbar */
+#navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 15px 0;
+    z-index: 50;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+#navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#navbar ul li {
+    margin: 0 15px;
+}
+
+#navbar ul li a {
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+#navbar ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: white;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+#navbar ul li a:hover::after,
+#navbar ul li a.active::after {
+    width: 100%;
+}
+
+#navbar ul li a:hover {
+    color: var(--secondary-color);
+}
+
+/* About Section */
+#about {
+    background-color: var(--background-light);
+}
+
+.intro-quote {
+    font-style: italic;
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    color: var(--light-text-color);
+}
+
+.couple-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.person-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 30px;
+    text-align: center;
+    width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.person-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid var(--secondary-color);
+    box-shadow: 0 0 0 5px rgba(var(--primary-color), 0.2);
+}
+
+.person-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.person-card p {
+    color: var(--light-text-color);
+    font-size: 0.9em;
+}
+
+.social-link {
+    margin-top: 10px;
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.social-link i {
+    margin-right: 5px;
+}
+
+.heart-icon {
+    font-size: 3em;
+    color: var(--accent-color);
+    animation: beat 1.5s infinite;
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Event Details Section */
+#event-details {
+    background-color: var(--background-dark);
+    color: var(--text-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax {
+    background-image: url('assets/pattern_bg.jpg'); /* Ganti dengan pattern Islami */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#event-details::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Overlay putih transparan */
+    z-index: 1;
+}
+
+#event-details .container {
+    position: relative;
+    z-index: 2;
+}
+
+.event-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.event-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 30px;
+    text-align: center;
+    width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.event-card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.event-card i {
+    font-size: 2em;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.event-card p {
+    margin-bottom: 10px;
+    color: var(--light-text-color);
+}
+
+.event-card strong {
+    color: var(--accent-color);
+}
+
+#countdown {
+    margin-top: 60px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#countdown h3 {
+    margin-bottom: 25px;
+    color: var(--primary-color);
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.time-unit {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 1.5em;
+    font-weight: bold;
+    min-width: 90px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    animation: bounceIn 1s ease-out;
+}
+
+.time-unit span {
+    display: block;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+/* Gallery Section (Slideshow) */
+#gallery {
+    background-color: var(--background-light);
+}
+
+.slideshow-container {
+    max-width: 800px;
+    position: relative;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.mySlides {
+    display: none;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 500px; /* Atur tinggi gambar */
+    object-fit: cover; /* Pastikan gambar mengisi area tanpa terdistorsi */
+    border-radius: 10px; /* Sudut membulat pada gambar */
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active-dot, .dot:hover {
+    background-color: var(--primary-color);
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* Map Section */
+#map {
+    background-color: var(--background-dark);
+}
+
+.map-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.map-container iframe {
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.map-caption {
+    font-style: italic;
+    color: var(--light-text-color);
+    margin-bottom: 15px;
+}
+
+/* Guestbook Section */
+#guestbook {
+    background-color: var(--background-light);
+}
+
+#rsvp-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1em;
+    box-sizing: border-box; /* Ensures padding doesn't increase width */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+#guestbook-entries {
+    margin-top: 40px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#guestbook-entries h3 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.entry {
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.entry:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.entry-name {
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.entry-message {
+    font-style: italic;
+    color: var(--light-text-color);
+    text-align: left;
+}
+
+/* Gifts Section */
+#gifts {
+    background-color: var(--background-dark);
+    text-align: center;
+}
+
+.bank-details {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.bank-details p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.bank-details strong {
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+
+.qr-code {
+    max-width: 200px;
+    height: auto;
+    margin-top: 20px;
+    border: 5px solid var(--secondary-color);
+    border-radius: 5px;
+}
+
+.qr-code-note {
+    margin-top: 25px;
+    font-style: italic;
+    color: var(--light-text-color);
+}
+
+.closing-note {
+    margin-top: 40px;
+    font-size: 1.1em;
+    font-style: italic;
+    color: var(--accent-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--accent-color);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Animations */
+/* Fade In */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.2s forwards;
+}
+
+.fade-in.left-delay { animation-delay: 0.5s; }
+.fade-in.right-delay { animation-delay: 1s; }
+.fade-in.bottom-delay { animation-delay: 0.3s; }
+
+/* Slide In Down */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Fade In Scale */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Zoom In */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Rotate In */
+@keyframes rotateIn {
+    from {
+        transform: rotate(-90deg) scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Pulse */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Bounce In */
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    0% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        transform: scale3d(0.97, 0.97, 0.97);
+    }
+    100% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3em;
+    }
+    .hero-content h2 {
+        font-size: 1.2em;
+    }
+    .hero-content .bride-name, .hero-content .groom-name {
+        font-size: 2em;
+    }
+    .hero-content .and {
+        font-size: 1.5em;
+    }
+
+    .couple-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .event-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .event-card {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    #navbar ul li {
+        margin: 0 8px;
+    }
+
+    .countdown-timer {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .time-unit {
+        padding: 10px 15px;
+        font-size: 1.2em;
+        min-width: 70px;
+    }
+
+    .time-unit span {
+        font-size: 1.5em;
+    }
+
+    .mySlides img {
+        height: 300px; /* Lebih kecil untuk mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content h2 {
+        font-size: 1em;
+    }
+    .hero-content .bride-name, .hero-content .groom-name {
+        font-size: 1.8em;
+    }
+    .hero-content .and {
+        font-size: 1.2em;
+    }
+
+    #open-invitation-btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .section-padded {
+        padding: 50px 0;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .person-card {
+        width: 100%;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+}
